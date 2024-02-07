@@ -1,6 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
+      <script>
+        function updateContent() {
+            var h1_txt_1 = "Родина Accipitridae";
+            var h1_txt_2 = "Орлан-білохвіст";
+            var h1_txt_3 = "Haliaeёtus albicilla";
+            var p_txt_1 = "Ареал охоплює більшу частину Євразії (переважно лісотундрова та лісова зони). В Україні – рідкісний осілий птах. Гніздо влаштовує на старих деревах або скелях. Живиться переважно рибою, але іноді полює на диких качок та інших птахів, зокрема й на ссавців розміром до зайця. Вид внесено до Червоної Книги України.";
+
+            var img_txt_1 = "orlan_sqr.gif";
+            var audio_exhibit = "white_eagle_sound.wav";
+            var audio_info = "orlan.wav";
+
+            document.getElementById("h1_el_1").textContent = h1_txt_1;
+            document.getElementById("h1_el_2").textContent = h1_txt_2;
+            document.getElementById("h1_el_3").textContent = h1_txt_3;
+            document.getElementById("p_el_1").textContent = p_txt_1;
+            document.getElementById("img_el_1").src = img_txt_1;
+            document.getElementById("audio_exhibit").src = audio_exhibit;
+            document.getElementById("audio_info").src = audio_info;
+        }
+    </script>
+  <title>Зоомузей</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200&display=swap');
     body {
@@ -75,9 +96,9 @@
     }
   </style>
 </head>
-<body>
-  <audio id="audio_info" src="orlan.wav"></audio>
-  <audio id="audio_exhibit" src="white_eagle_sound.wav"></audio>
+<body onload="updateContent()">
+  <audio id="audio_exhibit"></audio>
+  <audio id="audio_info"></audio>
   <div class="exhibit_gif_3d" onclick="toggleaudio_exhibit()">
     <div class="overlay">
       <img class="overlay-image" src="hands_transp_white.gif">
@@ -85,12 +106,16 @@
     <div class="overlay_touch">
       <img class="overlay-image2" src="circle_tran.gif">
     </div>
-    <img class="gif" src="orlan_sqr.gif">
+    <img class="gif" id="img_el_1">
   </div>
 
   <div class="center-text" onclick="toggleaudio_info()">
-    <h1><b><i>Родина Accipitridae</i><br>Орлан-білохвіст<br>Haliaeёtus albicilla</b></h1>
-    <p>Ареал охоплює більшу частину Євразії (переважно лісотундрова та лісова зони). В Україні – рідкісний осілий птах. Гніздо влаштовує на старих деревах або скелях. Живиться переважно рибою, але іноді полює на диких качок та інших птахів, зокрема й на ссавців розміром до зайця. Вид внесено до Червоної Книги України.</p>
+    <h1>
+    <i><span id="h1_el_1"></span></i><br>
+    <span id="h1_el_2"></span><br>
+    <span id="h1_el_3"></span>
+    </h1>
+    <p id="p_el_1"></p>
   </div>
   <script>
     var audio = document.getElementById('audio_info');
@@ -172,4 +197,4 @@
     }, 0);
   </script>
 </body>
-</html>
+</html>   
